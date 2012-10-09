@@ -5,9 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script src="phonegap.js"></script>
     <script src="http://openmap.me/socket.io/socket.io.js"></script> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript">
+		
+		// http://jquerymobile.com/demos/1.2.0/docs/pages/phonegap.html
+		$( document ).bind( "mobileinit", function() {
+			$.support.cors = true;
+			$.mobile.allowCrossDomainPages = true;
+			$.mobile.phonegapNavigationEnabled = true;
+		});
+	</script>
     <script src="http://openmap.me/js/underscore-min.js"></script>
     <script src="http://openmap.me/js/backbone-min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -678,7 +687,7 @@
 			V.nameLis.render();
 		});
 
-		$('#zoom-in').live('click', function() {
+		$('#zoom-in').live('vclick', function() {
 			maxZoomService.getMaxZoomAtLatLng(map.getCenter(),
 				function(response) {
 					if (response.status != google.maps.MaxZoomStatus.OK) {
@@ -690,7 +699,7 @@
 			});
 		});
 			
-		$('#zoom-out').live('click', function() {
+		$('#zoom-out').live('vclick', function() {
 			maxZoomService.getMaxZoomAtLatLng(map.getCenter(),
 				function(response) {
 					if (response.status != google.maps.MaxZoomStatus.OK) {
@@ -723,7 +732,7 @@
 			M.user.set({ name: $('#editname').val() });
 		});
 		
-		$('#inputs #change-map-button').live('click', function () {
+		$('#inputs #change-map-button').live('vclick', function () {
 		    console.log('here' + $('#mapIdEdit').val() + " " + mapId);
 			if ( mapId != $('#mapIdEdit').val()) {
 				var redir = 'http://' + location.host + "/m/" + $('#mapIdEdit').val()
@@ -732,7 +741,7 @@
 			};
 		});
 
-		$('#inputs #new-map-button').live('click', function () {
+		$('#inputs #new-map-button').live('vclick', function () {
 			var redir = 'http://' + location.host + "/m/" + $('#mapIdEdit').val()
 			window.location.href = 'http://' + location.host + "/createMap";
 			return false;

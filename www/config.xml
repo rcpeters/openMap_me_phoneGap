@@ -47,4 +47,6 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 	
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<gap:plugin name="Geolocation" />
+	
 </widget>
