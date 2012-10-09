@@ -755,12 +755,7 @@
 		$.mobile.loading( 'show' );
 		resize();
 		initUserId();		
-		$(function(){ 
-document.addEventListener("deviceready", initializeMaps, false); 
-		
-		
-});
-		initSocketIo();
+		document.addEventListener("deviceready", initializeMaps, false); 		
 		initBackboneObjects();
 		initJQMBindings();
 		$(window).resize(resize);
