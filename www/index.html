@@ -755,13 +755,24 @@
 		initBackboneObjects();
 		initJQMBindings();
 	}
+		
+	function onDeviceReadyGeo() { 
+		if (navigator.geolocation) { 
+			navigator.geolocation.getCurrentPosition(function(position){ 
+			//success! do something... 
+			alert('success'); 
+			}, geoError, {timeout: 15000}); 
+		} else { 
+		alert('not supported'); 
+		} 
+	} 
 
 	// JQ on page load
 	$(function() {
 		resize();
-		initUserId();	
-		document.addEventListener("deviceready" 
-		init, false);
+		initUserId();			
+		init();
+		document.addEventListener("deviceready", onDeviceReadyGeo, false); 
 		$(window).resize(resize);
 	});		
 	
