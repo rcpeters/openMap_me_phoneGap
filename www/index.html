@@ -12,9 +12,9 @@
 		
 		// http://jquerymobile.com/demos/1.2.0/docs/pages/phonegap.html
 		$( document ).bind( "mobileinit", function() {
-			//$.support.cors = true;
-			//$.mobile.allowCrossDomainPages = true;
-			//$.mobile.phonegapNavigationEnabled = true;
+			$.support.cors = true;
+			$.mobile.allowCrossDomainPages = true;
+			$.mobile.phonegapNavigationEnabled = true;
 		});
 	</script>
     <script src="http://openmap.me/js/underscore-min.js"></script>
@@ -565,7 +565,6 @@
 	};
 
     function initializeMaps() {
-		alert("init app");
         var mapOptions = {
           zoom: 6,
 		  disableDefaultUI: true,
@@ -749,23 +748,18 @@
 		});
 		
 	}
-	
-	function init() {
+
+	// JQ on page load
+	$(function() {
 		$.mobile.loading( 'show' );
 		resize();
 		initUserId();		
-		initializeMaps(); 		
+		initializeMaps();
+		initSocketIo();
 		initBackboneObjects();
 		initJQMBindings();
 		$(window).resize(resize);
 		$.mobile.loading( 'hide' );					
-
-	}
-
-	// JQ on page load
-	$(function() {
-		init();
-		//document.addEventListener("deviceready", init, false); 		
 	});		
 	
 	</script>
