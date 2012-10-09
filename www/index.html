@@ -748,18 +748,20 @@
 		});
 		
 	}
-
-	// JQ on page load
-	$(function() {
-		$.mobile.loading( 'show' );
-		resize();
-		initUserId();		
+	
+	function init() {
 		initializeMaps();
 		initSocketIo();
 		initBackboneObjects();
 		initJQMBindings();
+	}
+
+	// JQ on page load
+	$(function() {
+		resize();
+		initUserId();		
+		init();
 		$(window).resize(resize);
-		$.mobile.loading( 'hide' );					
 	});		
 	
 	</script>
