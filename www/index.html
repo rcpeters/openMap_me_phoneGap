@@ -565,6 +565,7 @@
 	};
 
     function initializeMaps() {
+		alert("init app");
         var mapOptions = {
           zoom: 6,
 		  disableDefaultUI: true,
@@ -754,7 +755,11 @@
 		$.mobile.loading( 'show' );
 		resize();
 		initUserId();		
-		initializeMaps();
+		$(function(){ 
+document.addEventListener("deviceready", initializeMaps, false); 
+		
+		
+});
 		initSocketIo();
 		initBackboneObjects();
 		initJQMBindings();
