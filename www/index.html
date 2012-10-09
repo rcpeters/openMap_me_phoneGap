@@ -749,17 +749,22 @@
 		});
 		
 	}
-
-	// JQ on page load
-	$(function() {
+	
+	function init() {
 		$.mobile.loading( 'show' );
 		resize();
 		initUserId();		
-		document.addEventListener("deviceready", initializeMaps, false); 		
+		initializeMaps(); 		
 		initBackboneObjects();
 		initJQMBindings();
 		$(window).resize(resize);
 		$.mobile.loading( 'hide' );					
+
+	}
+
+	// JQ on page load
+	$(function() {
+		document.addEventListener("deviceready", init, false); 		
 	});		
 	
 	</script>
