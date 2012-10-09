@@ -759,8 +759,9 @@
 	// JQ on page load
 	$(function() {
 		resize();
-		initUserId();		
-		init();
+		initUserId();	
+		document.addEventListener("deviceready" 
+		init, false);
 		$(window).resize(resize);
 	});		
 	
