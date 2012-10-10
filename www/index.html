@@ -783,13 +783,11 @@
 	$(function() {
 		resize();
 		initUserId();
-		//if (window.cordova) {
-		//	alert('phone gap');
-			document.addEventListener("deviceready", init, false); 
-		//} else {
-		//	init();
-		//}
-		//init();
+		if (window.cordova) {
+			alert('phone gap');
+		//	document.addEventListener("deviceready", init, false); 
+		} 
+		init();
 		//document.addEventListener("deviceready", onDeviceReady, false); 
 		$(window).resize(resize);
 	});		
