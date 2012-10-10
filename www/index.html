@@ -782,9 +782,15 @@
 	// JQ on page load
 	$(function() {
 		resize();
-		initUserId();			
-		init();
-		document.addEventListener("deviceready", onDeviceReady, false); 
+		initUserId();
+		if (window.cordova) {
+			alert('phone gap');
+			document.addEventListener("deviceready", init, false); 
+		} else {
+			init();
+		}
+		//init();
+		//document.addEventListener("deviceready", onDeviceReady, false); 
 		$(window).resize(resize);
 	});		
 	
