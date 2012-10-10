@@ -750,27 +750,16 @@
 	}
 	
 	function init() {
+		resize();
+		initUserId();
 		initializeMaps();
 		initSocketIo();
 		initBackboneObjects();
 		initJQMBindings();
+		$(window).resize(resize);
 	}
 		
-    function onDeviceReady() {
-        // Update every 3 seconds
-        var options = { frequency: 3000 };
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-    }
-
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
-        var coords = 'Latitude: '  + position.coords.latitude      + ' ' +
-                            'Longitude: ' + position.coords.longitude     + ' ' +
-                            '';
-		alert(coords);
-    }
-
+    
     // onError Callback receives a PositionError object
     //
     function onError(error) {
@@ -781,16 +770,13 @@
 	
 	// JQ on page load
 	$(function() {
-		resize();
-		initUserId();
 		if (window.cordova) {
 			document.addEventListener("deviceready", init, false); 
 			alert('phone gap');
 		} else {
-		init();
-
-		//document.addEventListener("deviceready", onDeviceReady, false); 
-		$(window).resize(resize);
+			init();
+		}
+		
 	});		
 	
 	</script>
