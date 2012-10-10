@@ -760,23 +760,15 @@
 	}
 		
     
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-	
+ 
 	
 	// JQ on page load
 	$(function() {
 		if (window.cordova) {
 			document.addEventListener("deviceready", init, false); 
-			alert('phone gap');
 		} else {
 			init();
 		}
-		
 	});		
 	
 	</script>
