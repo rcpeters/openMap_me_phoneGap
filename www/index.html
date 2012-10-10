@@ -783,12 +783,12 @@
 	$(function() {
 		resize();
 		initUserId();
-		if (window.cordova) {
-			alert('phone gap');
+		//if (window.cordova) {
+		//	alert('phone gap');
 			document.addEventListener("deviceready", init, false); 
-		} else {
-			init();
-		}
+		//} else {
+		//	init();
+		//}
 		//init();
 		//document.addEventListener("deviceready", onDeviceReady, false); 
 		$(window).resize(resize);
