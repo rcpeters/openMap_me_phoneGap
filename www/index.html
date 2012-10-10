@@ -756,18 +756,29 @@
 		initJQMBindings();
 	}
 		
-	function onDeviceReadyGeo() { 
-		alert('onReady');
-		if (navigator.geolocation) { 
-			navigator.geolocation.getCurrentPosition(function(position){ 
-			//success! do something... 
-			alert('success'); 
-			}, geoError, {timeout: 15000}); 
-		} else { 
-			alert('not supported'); 
-		} 
-	} 
+    function onDeviceReady() {
+        // Update every 3 seconds
+        var options = { frequency: 3000 };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    }
 
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var coords = 'Latitude: '  + position.coords.latitude      + ' ' +
+                            'Longitude: ' + position.coords.longitude     + ' ' +
+                            '';
+		alert(coords);
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	
+	
 	// JQ on page load
 	$(function() {
 		resize();
