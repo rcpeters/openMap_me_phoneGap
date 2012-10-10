@@ -757,13 +757,14 @@
 	}
 		
 	function onDeviceReadyGeo() { 
+		alert('onReady');
 		if (navigator.geolocation) { 
 			navigator.geolocation.getCurrentPosition(function(position){ 
 			//success! do something... 
 			alert('success'); 
 			}, geoError, {timeout: 15000}); 
 		} else { 
-		alert('not supported'); 
+			alert('not supported'); 
 		} 
 	} 
 
