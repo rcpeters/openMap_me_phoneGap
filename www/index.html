@@ -784,11 +784,11 @@
 		resize();
 		initUserId();
 		if (window.cordova) {
-			alert('phone gap');
 			document.addEventListener("deviceready", init, false); 
+			alert('phone gap');
 		} else {
-			init();
-		}
+		init();
+
 		//document.addEventListener("deviceready", onDeviceReady, false); 
 		$(window).resize(resize);
 	});		
